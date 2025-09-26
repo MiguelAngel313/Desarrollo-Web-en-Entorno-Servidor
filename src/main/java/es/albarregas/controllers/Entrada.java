@@ -44,6 +44,7 @@ public class Entrada extends HttpServlet {
             out.println("<h2>M&eacute;todo de llamada es " + request.getMethod() + "</h2>");
             Enumeration<String> parametros=request.getParameterNames();
             out.println("<ul>");
+            
             while (parametros.hasMoreElements()) {                
                 String nombre =parametros.nextElement();
                 out.println("<li>"+nombre+" con valor "+request.getParameter(nombre)+"</li>");
