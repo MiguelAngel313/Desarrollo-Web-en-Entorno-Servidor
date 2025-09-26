@@ -1,0 +1,72 @@
+# Ignorar la carpeta target de Maven
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Archivos compilados de Java
+*.class
+*.war
+*.ear
+
+# Archivos de IDE
+## Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+## IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+## NetBeans
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de log
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de configuración local
+*.properties.local
+*.config.local
+
+# Archivos de base de datos (si usas H2 u otras embebidas)
+*.db
+*.h2.db
+
+# Archivos de dependencias descargadas (por si acaso)
+lib/
+*.jar
+!**/src/main/resources/**/*.jar
+!**/src/test/resources/**/*.jar
+
+# Archivos de Maven wrapper (opcional)
+.mvn/wrapper/maven-wrapper.jar
+
+# Archivos de aplicación server (opcional)
+server/
+servers/
+
+# Archivos de cobertura de tests
+*.exec
+*.gcov
+*.gcda
+*.gcno
+coverage/
+jacoco.exec
