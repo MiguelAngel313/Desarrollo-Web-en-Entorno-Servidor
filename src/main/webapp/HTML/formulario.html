@@ -26,10 +26,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div>
             <form method="get">
+                <!-- Nombre (text) -->
                 <label for="nb">Nombre</label>
                 <input type="text" name="nombre" id="nb" placeholder="Introducir aqu&iacute"><br>
-                <label for="ab">Apellido</label>
-                <input type="text" id="ap" name="apellido" placeholder="Apellido 1"><br>
+                <!-- Fecha nacimiento (dd/mm/yy) -->
+                <label for="fechaNacimiento">Fecha de nacimiento</label>
+                <input type="date" name="fechaNacimiento" id="fechaNacimiento"><br>
+                <!-- salario (dos decimales) -->
+                <label for="salario">Salario</label>
+                <input type="number" name="salario" id="salario" step="0.01" placeholder="0.00"><br>
+                <!-- numero de hijos (entero) -->
+                <label for="numHijos">N&uacute;mero de hijos</label>
+                <input type="number" name="numHijos" id="numHijos" step="1" placeholder="0"><br>
+                <!-- Preferencias (select multiple) -->
+                <label for="preferencias">Preferencias</label>
+                <select name="preferencias" id="preferencias">
+                    <option value="deportes">Deportes</option>
+                    <option value="musica">M&uacute;sica</option>
+                    <option value="cine">Cine</option>
+                    <option value="tecnologia">Tecnolog&iacute;a</option>
+                </select><br>
                 <br>
                 <input type="submit"/>
             </form>
