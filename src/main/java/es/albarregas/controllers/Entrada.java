@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.html.parser.Element;
 
 /**
  *
@@ -33,14 +34,23 @@ public class Entrada extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String[] preferencias = request.getParameterValues("preferencias");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Entrada</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("Nombre: "+request.getParameter("nombre"));
-            System.out.println("<a href=\".\">Volver</a>");
+            out.println("<ul>");
+            out.println("<li>Nombre: "+request.getParameter("nombre")+"</li>");
+            out.println("<li>Fecha de nacimiento: "+request.getParameter("fechaNacimiento")+"</li>");
+            out.println("<li>salario: "+request.getParameter("salario")+"</li>");
+            out.println("<li>N&uacute;mero de hijos: "+request.getParameter("numHijos")+"</li>");
+            if (preferencias != null && preferencias.length>0) {
+                out.println("<li>Preferencias: "+String.join(", ", preferencias)+"</li>");
+            }
+            out.println("</ul>");
+            out.println("<a href=\".\">Volver</a>");
             out.println("</body>");
             out.println("</html>");
         }
