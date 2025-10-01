@@ -16,6 +16,10 @@ body{
     background-color: #222831 ;
 }
 
+p{
+    color: #F5EFE7;
+}
+
 h1{text-align: center;
 color: #948979;
 margin-top: 2%;
@@ -44,8 +48,7 @@ a, label{
     color: #F5EFE7;
 }
 
-
-.formulario{
+.formulario, .datos{
     border-radius: 10px;
     font-size: x-large;
     background-color: #393E46;
@@ -66,6 +69,30 @@ a, label{
     width: 10%;
     box-shadow: none;
 }
+
+.volver{
+    border: none;;
+    border-radius: 5px;
+    background-color: #948979;
+    color: #F5EFE7;
+    font-size: x-large;
+    width: 5%;
+    text-align: center;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.volverLargo{border: none;;
+    border-radius: 5px;
+    background-color: #948979;
+    color: #F5EFE7;
+    font-size: x-large;
+    width: 12%;
+    text-align: center;
+    margin: auto;
+    margin-top: 2%;}
+
+
 input, select{
     border: none;
     border-radius: 5px;

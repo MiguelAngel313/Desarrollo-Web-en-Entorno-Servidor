@@ -16,7 +16,7 @@ import javax.swing.text.html.parser.Element;
 
 /**
  *
- * @author arey1
+ * @author rmig
  */
 @WebServlet(name = "Entrada", urlPatterns = {"/Entrada"})
 public class Entrada extends HttpServlet {
