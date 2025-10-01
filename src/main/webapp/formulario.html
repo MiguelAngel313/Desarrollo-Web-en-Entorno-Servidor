@@ -18,36 +18,37 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             body {
                 background-color: rgb(24, 24, 24);
             }
-            label {
+            label, a {
                 color: white;
             }
         </style>
     </head>
     <body>
         <div>
-            <form method="get">
+            <form action="Entrada" method="get">
                 <!-- Nombre (text) -->
-                <label for="nb">Nombre</label>
-                <input type="text" name="nombre" id="nb" placeholder="Introducir aqu&iacute"><br>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" placeholder="Introducir aqu&iacute" required><br>
                 <!-- Fecha nacimiento (dd/mm/yy) -->
                 <label for="fechaNacimiento">Fecha de nacimiento</label>
-                <input type="date" name="fechaNacimiento" id="fechaNacimiento"><br>
+                <input type="date" name="fechaNacimiento" required><br>
                 <!-- salario (dos decimales) -->
                 <label for="salario">Salario</label>
-                <input type="number" name="salario" id="salario" step="0.01" placeholder="0.00"><br>
+                <input type="number" name="salario" id="salario" step="0.01" placeholder="0.00" required><br>
                 <!-- numero de hijos (entero) -->
                 <label for="numHijos">N&uacute;mero de hijos</label>
-                <input type="number" name="numHijos" id="numHijos" step="1" placeholder="0"><br>
+                <input type="number" name="numHijos" id="numHijos" step="1" placeholder="0" required><br>
                 <!-- Preferencias (select multiple) -->
                 <label for="preferencias">Preferencias</label>
-                <select name="preferencias" id="preferencias">
+                <select name="preferencias" id="preferencias" multiple>
                     <option value="deportes">Deportes</option>
                     <option value="musica">M&uacute;sica</option>
                     <option value="cine">Cine</option>
                     <option value="tecnologia">Tecnolog&iacute;a</option>
                 </select><br>
                 <br>
-                <input type="submit"/>
+                <input type="submit"/><br>
+                <a href="../index.html">Inicio</a>
             </form>
         </div>
     </body>
