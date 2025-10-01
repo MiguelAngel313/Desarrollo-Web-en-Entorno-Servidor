@@ -2,19 +2,26 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     
 }
-
+/*
+*Gia de colores
+* Principal: #222831
+* Secundario: #393E46
+* Titulos: #948979
+* Textos y enlaces: #F5EFE7
+*/
 body{
     background-color: #222831 ;
 }
 
 h1{text-align: center;
-color: #393E46;
+color: #948979;
+margin-top: 2%;
 }
 
-h4{
+h2{
     color: #948979;
 }
 
@@ -29,8 +36,43 @@ h4{
     padding: 25px;
     margin: 20px;
     color: #F5EFE7;
+    background-color: #393E46;
+    width: fit-content;
 }
 
-a{
+a, label{
     color: #F5EFE7;
 }
+
+
+.formulario{
+    border-radius: 10px;
+    font-size: x-large;
+    background-color: #393E46;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 3%;
+    text-align: center;
+    box-shadow: 10px 10px 10px;
+}
+
+.boton{
+    border: none;;
+    border-radius: 5px;
+    background-color: #948979;
+    color: #F5EFE7;
+    font-size: x-large;
+    width: 10%;
+    box-shadow: none;
+}
+input, select{
+    border: none;
+    border-radius: 5px;
+    background-color: #F5EFE7;
+    font-size: large;
+    width: 80%;
+    box-shadow: 10px 10px 10px;
+}
+
+

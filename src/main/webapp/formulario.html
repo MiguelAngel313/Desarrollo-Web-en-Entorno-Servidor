@@ -8,38 +8,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>Formulario1</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            div {
-                border: 1px solid white;
-                width: 200px;
-                padding: 10px;
-                margin: auto;
-            }
-            body {
-                background-color: rgb(24, 24, 24);
-            }
-            label, a {
-                color: white;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div>
+        <h1>Introduce los datos</h1>
+        <div class="formulario">
             <form action="Entrada" method="get">
                 <!-- Nombre (text) -->
-                <label for="nombre">Nombre</label>
+                <label for="nombre">Nombre</label><br>
                 <input type="text" name="nombre" placeholder="Introducir aqu&iacute" required><br>
                 <!-- Fecha nacimiento (dd/mm/yy) -->
-                <label for="fechaNacimiento">Fecha de nacimiento</label>
+                <label for="fechaNacimiento">Fecha de nacimiento</label><br>
                 <input type="date" name="fechaNacimiento" required><br>
                 <!-- salario (dos decimales) -->
-                <label for="salario">Salario</label>
+                <label for="salario">Salario</label><br>
                 <input type="number" name="salario" step="0.01" placeholder="0.00" required><br>
                 <!-- numero de hijos (entero) -->
-                <label for="numHijos">N&uacute;mero de hijos</label>
+                <label for="numHijos">N&uacute;mero de hijos</label><br>
                 <input type="number" name="numHijos" step="1" placeholder="0" required><br>
                 <!-- Preferencias (select multiple) -->
-                <label for="preferencias">Preferencias</label>
+                <label for="preferencias">Preferencias</label><br>
                 <select name="preferencias" multiple>
                     <option value="deportes">Deportes</option>
                     <option value="musica">M&uacute;sica</option>
@@ -47,8 +35,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <option value="tecnologia">Tecnolog&iacute;a</option>
                 </select><br>
                 <br>
-                <input type="submit"/><br>
-                <a href="../index.html">Inicio</a>
+                <input class="boton" type="submit"/>
+                <a href="../index.html"><button class="boton">Volver</button></a>
             </form>
         </div>
     </body>
