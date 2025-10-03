@@ -6,6 +6,8 @@ package es.albarregas.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +52,9 @@ public class ControladorFormulario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Obtener los parámetros del formulario
+        StringBuilder parametros = new StringBuilder();
+        Enumeration<String> nombresParametros = request.getParameterNames();
+
         String nombre = request.getParameter("nombre");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
         String salario = request.getParameter("salario");
@@ -57,9 +62,7 @@ public class ControladorFormulario extends HttpServlet {
         String[] preferencias = request.getParameterValues("preferencias");
 
         // Verificar si se enviaron datos (si hay al menos un parámetro)
-        boolean hayDatos = nombre != null || fechaNacimiento != null ||
-                salario != null || numHijos != null ||
-                preferencias != null;
+        boolean hayDatos = parametros != null;
 
         if (hayDatos) {
             // Validar que ningún campo obligatorio esté vacío
