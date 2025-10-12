@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.Request;
 
 /**
  *
@@ -72,14 +73,14 @@ public class ControladorFormulario extends HttpServlet {
                     numHijos == null || numHijos.trim().isEmpty()) {
 
                 // Mostrar el formulario nuevamente con mensaje de error
-                mostrarFormulario(response, "Error: Todos los campos deben ser completados.");
+                mostrarFormulario(request, response, "Error: Todos los campos deben ser completados.");
             } else {
                 // Si todos los campos están completos, mostrar los datos
-                mostrarDatos(response, nombre, fechaNacimiento, salario, numHijos, preferencias);
+                mostrarDatos(request, response, nombre, fechaNacimiento, salario, numHijos, preferencias);
             }
         } else {
             // Mostrar el formulario vacío cuando no hay datos
-            mostrarFormulario(response, "");
+            mostrarFormulario(request, response, "");
         }
     }
 
@@ -108,7 +109,7 @@ public class ControladorFormulario extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void mostrarFormulario(HttpServletResponse response, String mensajeError) throws IOException {
+    private void mostrarFormulario(HttpServletRequest request, HttpServletResponse response, String mensajeError) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
@@ -117,16 +118,14 @@ public class ControladorFormulario extends HttpServlet {
             out.println("<title>Formulario1</title>");
             out.println("<meta charset=\"UTF-8\">");
             out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-            out.println("<link rel=\"stylesheet\" href=\"../../CSS/style.css\">");
+            out.println("<link rel=\"stylesheet\" href=\"" + request.getContextPath() + "/CSS/style.css\">");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Introduce los datos</h1>");
-
             // Mostrar mensaje de error si existe
             if (!mensajeError.isEmpty()) {
-                out.println("<div class=\"error\">" + mensajeError + "</div>");
+                out.println("<div style=\"color: orange\" class=\"error\">" + mensajeError + "</div>");
             }
-
             out.println("<div class=\"formulario\">");
             out.println("<form action=\"ControladorFormulario\" method=\"get\">");
             // Nombre (text)
@@ -161,7 +160,7 @@ public class ControladorFormulario extends HttpServlet {
         }
     }
 
-    private void mostrarDatos(HttpServletResponse response, String nombre, String fechaNacimiento,
+    private void mostrarDatos(HttpServletRequest request, HttpServletResponse response, String nombre, String fechaNacimiento,
             String salario, String numHijos, String[] preferencias) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -170,7 +169,7 @@ public class ControladorFormulario extends HttpServlet {
             out.println("<head>");
             out.println("<title>Datos del Formulario</title>");
             out.println("<meta charset=\"UTF-8\">");
-            out.println("<link rel=\"stylesheet\" href=\"style.css\">");
+            out.println("<link rel=\"stylesheet\" href=\"" + request.getContextPath() + "/CSS/style.css\">");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Datos del Formulario Recibidos</h1>");

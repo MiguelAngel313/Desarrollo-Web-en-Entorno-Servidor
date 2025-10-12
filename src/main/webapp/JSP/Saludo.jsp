@@ -18,22 +18,41 @@
         <div class="formulario">
             <%
                 Enumeration<String> parametros=request.getParameterNames();
-                String nombreParametro;
-                String valorParametro;
                 
-                if (parametros == null || !parametros.hasMoreElements()) {
+                if (!parametros.hasMoreElements()) {
+                        out.println("<p>Todos los campos son obligatorios.");
+                    } else {
+                        out.println("<table>");
+                        out.println("<tr><th>Par&aacutemetros</th><th>Valor</th></tr>");
+                        
+                        while (parametros.hasMoreElements()) {
+                                 String nombreParametro = parametros.nextElement();
+                                 String[] valores = request.getParameterValues(nombreParametro);
+                                 
+                                 if (valores != null && valores.length > 1) {
+                                         out.println("<tr>");
+                                         out.println("<td>"+nombreParametro+"</td>");
+                                         
+                                         for (int i = 0; i < valores.length; i++) {
+                                                 if (i > 0) out.println(", ");
+                                                 out.println(valores[i] != null ? valores[i] : "");
+                                             }
+                                         out.println("</td>");
+                                         out.println("</tr>");
+                                     } else {
+                                    String valorParametro = request.getParameter(nombreParametro);
+                                    out.println("<tr>");
+                                    out.println("<td><strong>" + nombreParametro + "</strong></td>");
+                                    out.println("<td>" + (valorParametro != null ? valorParametro : "") + "</td>");
+                                    out.println("</tr>");
+                                     }
+                            }
+                        out.println("</table>");
                     }
-                else{
-                     while (parametros.hasMoreElements()) {
-                             
-                         nombreParametro = parametros.nextElement();
-                         valorParametro = request.getParameter(nombreParametro);
-                         out.println("<p>"+nombreParametro + ": "+ valorParametro+"</p>");
-                         
-                         }
-   
-                }
             %>
+        </div>
+        <div class="volver">
+            <a href="../HTML/Saludo.html">Volver</a>
         </div>
     </body>
 </html>

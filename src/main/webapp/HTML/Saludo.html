@@ -9,18 +9,21 @@
     <body>
         <h1>Introduce los datos</h1>
         <div class="formulario" style="width: 50vh;">
-            <form action="Saludo.jsp" method="post">
+            <form action="../JSP/Saludo.jsp" method="post">
                 <label for="Nombre">Nombre</label><br>
-                <input type="text" id="nombre"><br>
+                <input type="text" name="Nombre"><br>
                 <p>Elige un g&eacutenero</p>
                 <label class="check">
-                    <input type="radio" name="opcion" id="hombre">Hombre
+                    <input type="radio" name="genero" value="Hombre">Hombre
                 </label>
                 <label class="check">
-                    <input type="radio" name="opcion" id="mujer">Mujer
+                    <input type="radio" name="genero" value="Mujer">Mujer
                 </label>
                 <input type="submit" value="Enviar">
             </form>
+        </div>
+        <div class="volver">
+            <a href="../index.html">Volver</a>
         </div>
     </body>
 </html>
