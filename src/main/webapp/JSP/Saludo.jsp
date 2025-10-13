@@ -21,33 +21,17 @@
                 
                 if (!parametros.hasMoreElements()) {
                         out.println("<p>Todos los campos son obligatorios.");
-                    } else {
-                        out.println("<table>");
-                        out.println("<tr><th>Par&aacutemetros</th><th>Valor</th></tr>");
-                        
+                    } else {                     
                         while (parametros.hasMoreElements()) {
-                                 String nombreParametro = parametros.nextElement();
-                                 String[] valores = request.getParameterValues(nombreParametro);
+                                 String nombre=parametros.nextElement();
+                                 String[] valores = request.getParameterValues(nombre);
                                  
-                                 if (valores != null && valores.length > 1) {
-                                         out.println("<tr>");
-                                         out.println("<td>"+nombreParametro+"</td>");
-                                         
-                                         for (int i = 0; i < valores.length; i++) {
-                                                 if (i > 0) out.println(", ");
-                                                 out.println(valores[i] != null ? valores[i] : "");
-                                             }
-                                         out.println("</td>");
-                                         out.println("</tr>");
-                                     } else {
-                                    String valorParametro = request.getParameter(nombreParametro);
-                                    out.println("<tr>");
-                                    out.println("<td><strong>" + nombreParametro + "</strong></td>");
-                                    out.println("<td>" + (valorParametro != null ? valorParametro : "") + "</td>");
-                                    out.println("</tr>");
-                                     }
+                                for (int i = 0; i < valores.length; i++) {
+                                        if (valores[i].equals("Hombre")) {
+                                                out.println("Buenas tardes se&ntildeor "+nombre);
+                                            }
+                                    }
                             }
-                        out.println("</table>");
                     }
             %>
         </div>
