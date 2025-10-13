@@ -24,9 +24,4 @@ El documento index.html contiene la sintaxis básica para contener los enlaces p
 ```
 Utilizando este código podemos obtener parámetros en el documento Entrada.java y utilizarlos posteriormente de la forma en que creamos conveniente.
 
-### Ejecutar proyecto en VSCODE
-- Ctrl + shift + p
-- Tomcat: run on Tomcat server
-- Seleccionar archivo: nombre_del_proyecto/target/archivo.war
-- http://localhost:8080
 
