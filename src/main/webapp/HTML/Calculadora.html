@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <div class="formulario">
+        <form action="../JSP/Calculadora.jsp" method="post">
+            <label for="operando1">Primer operando:</label><br>
+            <input type="number" name="operando1" style="width: 10vh;"><br>
+            <label for="operando2">Segundo operando:</label><br>
+            <input type="number" name="operando2" style="width: 10vh;"><br>
+        
+            <label class="check" style="margin-left: 30vh;">
+                <input class="operadores" type="radio" name="sumar" value="Sumar">Sumar
+                <input class="operadores" type="radio" name="sumar" value="Sumar">Restar 
+                <input class="operadores" type="radio" name="sumar" value="Sumar">Multiplicar
+                <input class="operadores" type="radio" name="sumar" value="Sumar">Dividir
+            </label><br>
+
+            <input class="boton" type="submit" value="Enviar" style="margin-right: 20px;">
+            <input class="boton" type="reset" value="Limpiar">
+        </form>
+    </div>
+    <div class="volver">
+            <a href="../index.html">Volver</a>
+    </div>
+</body>
+</html>

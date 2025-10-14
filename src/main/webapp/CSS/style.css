@@ -105,10 +105,13 @@ input, select{
 .check{
     display: flex;
     width: fit-content;
+    align-items: center;
 }
 
 .error{
     color: orangered;
 }
 
-
+.operadores{
+    margin-left: 10px;
+}
