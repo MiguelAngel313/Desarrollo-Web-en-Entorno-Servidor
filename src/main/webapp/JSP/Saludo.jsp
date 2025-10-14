@@ -19,39 +19,36 @@
         <h1>Datos del formulario</h1>
         <div class="formulario">
             <%
-                Enumeration<String> parametros=request.getParameterNames();
+                Enumeration<String> parametros = request.getParameterNames();
                 String nombrePersona = request.getParameter("Nombre");
                 LocalTime horaActual = LocalTime.now();
                 String mensaje = "";
-                
-                if (horaActual.isBefore(LocalTime.of(13, 0)) && horaActual.isAfter(LocalTime.of(8, 0))) {
-                        mensaje = "Buenos dias ";
-                    }
-                if (horaActual.isBefore(LocalTime.of(21, 1)) && horaActual.isAfter(LocalTime.of(13, 0))) {
-                        mensaje = "Buenas tardes ";
-                    }
-                if (horaActual.isBefore(LocalTime.of(7, 59)) && horaActual.isAfter(LocalTime.of(21, 1))) {
-                        mensaje = "Buenas noches ";
-                    }
-                
-                
+
+                if (horaActual.isAfter(LocalTime.of(8, 0)) && horaActual.isBefore(LocalTime.of(13, 0))) {
+                    mensaje = "Buenos días ";
+                } else if (horaActual.isAfter(LocalTime.of(13, 0)) && horaActual.isBefore(LocalTime.of(21, 0))) {
+                    mensaje = "Buenas tardes ";
+                } else {
+                    mensaje = "Buenas noches ";
+                }
+
                 if (!parametros.hasMoreElements()) {
-                        out.println("<p>Todos los campos son obligatorios.</p>");
-                    } else {                     
-                        while (parametros.hasMoreElements()) {
-                                 String nombre=parametros.nextElement();
-                                 String[] valores = request.getParameterValues(nombre);
-                                 
-                                for (int i = 0; i < valores.length; i++) {
-                                        if (valores[i].equals("Hombre")) {
-                                                out.println("<p>"+mensaje+"se&ntildeor "+nombrePersona+"</p>");
-                                            }
-                                        if (valores[i].equals("Mujer")) {
-                                               out.println("<p>"+mensaje+"se&ntildeora "+nombrePersona+"</p>"); 
-                                            }
-                                    }
+                    out.println("<p>Todos los campos son obligatorios.</p>");
+                } else {
+                    while (parametros.hasMoreElements()) {
+                        String nombre = parametros.nextElement();
+                        String[] valores = request.getParameterValues(nombre);
+
+                        for (int i = 0; i < valores.length; i++) {
+                            if (valores[i].equals("Hombre")) {
+                                out.println("<p>" + mensaje + "se&ntildeor " + nombrePersona + "</p>");
                             }
+                            if (valores[i].equals("Mujer")) {
+                                out.println("<p>" + mensaje + "se&ntildeora " + nombrePersona + "</p>");
+                            }
+                        }
                     }
+                }
             %>
         </div>
         <div class="volver">
