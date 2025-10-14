@@ -12,6 +12,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <h1>Introduce tu fecha de nacimiento</h1>
-        
+        <div class="formulario" style="width: 50vh;">
+            
+            <form action="../JSP/Nacimiento.jsp" method="post">
+                <label for="fecha">Fecha de nacimiento</label>
+                <input type="date" name="fecha">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+        <div class="volver">
+            <a href="../index.html">Volver</a>
+        </div>
     </body>
 </html>
