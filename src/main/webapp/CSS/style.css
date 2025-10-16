@@ -115,3 +115,7 @@ input, select{
 .operadores{
     margin-left: 10px;
 }
+
+table{
+    border: 1px solid #948979;
+}
