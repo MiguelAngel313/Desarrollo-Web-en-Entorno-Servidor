@@ -9,29 +9,55 @@
 <%@page import="java.util.Enumeration"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/CSS/style.css">
         <title>N&uacute;mero secreto</title>
     </head>
     <body>
         <h1>Adivina el n&uacute;mero secreto</h1>
         <div class="formulario">
             <p>Intenta adivinar el n&uacute;mero secreto con el menor n&uacute;mero de intentos posibles.</p>
-            <form action="./NumeroSecreto.jsp" method="post">
-                <label for="num"> Introduce un n&uacute;mero de 1 a 100:</label>
-                <input type="number" name="numero">
-                <input class="boton" type="submit" value="Probar">
-            </form>
+            
             <%
                 String error = "";
                 String mensaje = "";
                 Integer numeroIntroducido = null;
-                Random random = new Random();
-                Integer numeroAleatorio = random.nextInt(1, 100);
+                
+                // Obtener parámetros del request
+                String numeroAleatorioStr = request.getParameter("numeroAleatorio");
+                String numerosStr = request.getParameter("numeros");
+                String mensajesStr = request.getParameter("mensajes");
+                
+                Integer numeroAleatorio = null;
                 ArrayList<Integer> numeros = new ArrayList<>();
                 ArrayList<String> mensajes = new ArrayList<>();
+                
+                // Si no hay número aleatorio, generar uno nuevo (primera vez)
+                if (numeroAleatorioStr == null || numeroAleatorioStr.isEmpty()) {
+                    Random random = new Random();
+                    numeroAleatorio = random.nextInt(1, 100);
+                } else {
+                    // Recuperar el número aleatorio existente
+                    numeroAleatorio = Integer.parseInt(numeroAleatorioStr);
+                    
+                    // Recuperar los números intentados
+                    if (numerosStr != null && !numerosStr.isEmpty()) {
+                        String[] numerosArray = numerosStr.split(",");
+                        for (String numStr : numerosArray) {
+                            numeros.add(Integer.parseInt(numStr));
+                        }
+                    }
+                    
+                    // Recuperar los mensajes
+                    if (mensajesStr != null && !mensajesStr.isEmpty()) {
+                        String[] mensajesArray = mensajesStr.split("\\|");
+                        for (String men : mensajesArray) {
+                            mensajes.add(men);
+                        }
+                    }
+                }
 
                 // Verificar si el parámetro existe y no es nulo/vacío
                 String numeroParam = request.getParameter("numero");
@@ -51,15 +77,16 @@
                                 mensaje = "El n&uacute;mero que he pensado es m&aacute;s bajo.";
                                 mensajes.add(mensaje);
                             } else if (numeroIntroducido == numeroAleatorio) {
-                                mensaje = "Acierto";
+                                mensaje = "¡Acierto! Has adivinado el número.";
                                 mensajes.add(mensaje);
                             }
 
-                            out.println("<table>");
+                            // Mostrar tabla con intentos
+                            out.println("<table border='1'>");
                             out.println("<tr>");
                             out.println("<th>Intento</th>");
-                            for (Integer num : numeros) {
-                                out.println("<td>" + num + "</td>");
+                            for (int i = 0; i < numeros.size(); i++) {
+                                out.println("<td>#" + (i+1) + ": " + numeros.get(i) + "</td>");
                             }
                             out.println("</tr>");
                             out.println("<tr>");
@@ -68,6 +95,12 @@
                                 out.println("<td>" + men + "</td>");
                             }
                             out.println("</tr>");
+                            out.println("</table>");
+                            
+                            // Mostrar mensaje especial si acertó
+                            if (numeroIntroducido == numeroAleatorio) {
+                                out.println("<p class='acierto'>¡Felicidades! Has adivinado el número en " + numeros.size() + " intentos.</p>");
+                            }
                         }
                     } catch (NumberFormatException e) {
                         error = "<p class=\"error\">Por favor, introduce un n&uacute;mero v&aacute;lido</p>";
@@ -78,7 +111,40 @@
                 if (!error.isEmpty()) {
                     out.println(error);
                 }
+                
+                // Preparar datos para enviar en el formulario
+                StringBuilder numerosBuilder = new StringBuilder();
+                for (Integer num : numeros) {
+                    if (numerosBuilder.length() > 0) {
+                        numerosBuilder.append(",");
+                    }
+                    numerosBuilder.append(num);
+                }
+                
+                StringBuilder mensajesBuilder = new StringBuilder();
+                for (String men : mensajes) {
+                    if (mensajesBuilder.length() > 0) {
+                        mensajesBuilder.append("|");
+                    }
+                    mensajesBuilder.append(men);
+                }
             %>
+            
+            <form action="./NumeroSecreto.jsp" method="post">
+                <label for="num"> Introduce un n&uacute;mero de 1 a 100:</label>
+                <input type="number" name="numero" min="1" max="100">
+                <!-- Campos ocultos para mantener el estado -->
+                <input type="hidden" name="numeroAleatorio" value="<%= numeroAleatorio %>">
+                <input type="hidden" name="numeros" value="<%= numerosBuilder.toString() %>">
+                <input type="hidden" name="mensajes" value="<%= mensajesBuilder.toString() %>">
+                <input class="boton" type="submit" value="Probar">
+                
+            </form>
+            
+                
+            
+            
+                
         </div>
     </body>
 </html>
