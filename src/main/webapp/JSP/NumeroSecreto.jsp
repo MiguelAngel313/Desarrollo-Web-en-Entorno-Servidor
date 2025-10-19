@@ -77,7 +77,7 @@
                                 mensaje = "El n&uacute;mero que he pensado es m&aacute;s bajo.";
                                 mensajes.add(mensaje);
                             } else if (numeroIntroducido == numeroAleatorio) {
-                                mensaje = "¡Acierto! Has adivinado el número.";
+                                mensaje = "¡Acierto! Has adivinado el n&uacute;mero.";
                                 mensajes.add(mensaje);
                             }
 
@@ -85,21 +85,23 @@
                             out.println("<table border='1'>");
                             out.println("<tr>");
                             out.println("<th>Intento</th>");
-                            for (int i = 0; i < numeros.size(); i++) {
-                                out.println("<td>#" + (i+1) + ": " + numeros.get(i) + "</td>");
-                            }
-                            out.println("</tr>");
-                            out.println("<tr>");
                             out.println("<th>Mensaje</th>");
-                            for (String men : mensajes) {
-                                out.println("<td>" + men + "</td>");
-                            }
                             out.println("</tr>");
+                            for (int i = 0; i < numeros.size(); i++) {
+                            out.println("<tr>");
+                                out.println("<td>#" + (i+1) + ": " + numeros.get(i) + "</td>");
+                                out.println("<td>" + mensajes.get(i) + "</td>");
+                            out.println("</tr>");
+                            }
+                            
+                            
+                            
+                            
                             out.println("</table>");
                             
                             // Mostrar mensaje especial si acertó
                             if (numeroIntroducido == numeroAleatorio) {
-                                out.println("<p class='acierto'>¡Felicidades! Has adivinado el número en " + numeros.size() + " intentos.</p>");
+                                out.println("<p class='acierto'>¡Felicidades! Has adivinado el n&uacute;mero en " + numeros.size() + " intentos.</p>");
                             }
                         }
                     } catch (NumberFormatException e) {
@@ -139,12 +141,10 @@
                 <input type="hidden" name="mensajes" value="<%= mensajesBuilder.toString() %>">
                 <input class="boton" type="submit" value="Probar">
                 
-            </form>
-            
-                
-            
-            
-                
+            </form>    
         </div>
+                <div class="volver">
+                    <a href="../index.html">Volver</a>
+                </div>
     </body>
 </html>

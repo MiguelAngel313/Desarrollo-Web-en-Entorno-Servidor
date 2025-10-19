@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Cambio</title>
+</head>
+<body>
+    
+    <h1>Introduce los datos</h1>
+    <div class="formulario">
+        <form action="../JSP/CalculadoraCambio.jsp" method="post">
+            <label for="precio">Precio del producto</label><br>
+            <input type="number" name="precio" step="0.01" placeholder="0.00"><br>
+            <label for="entregado">Entregado</label><br>
+            <input type="number" name="entregado" step="0.01" placeholder="0.00"><br>
+
+            <input class="boton" type="submit" value="Enviar">
+
+        </form>
+    </div>
+    <div class="volver">
+        <a href="../index.html">Volver</a>
+    </div>
+
+</body>
+</html>
