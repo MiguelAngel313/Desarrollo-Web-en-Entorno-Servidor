@@ -77,47 +77,47 @@
                     int monedas1cent = centimosTotales;
 
                     %>
-                    <table>
+                    <table style="color: #F5EFE7;">
                         <tr>
                             <td>
                             <%
                                 if (billetes100 > 0) {
-                                    %><img src="../Img/Billetes/100.jpg"/><% out.println(billetes100); %><%
+                                    %><img class="dinero" src="../Img/Billetes/100.jpg"/><% out.println(billetes100); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (billetes50 > 0) {
-                                    %><img src="../Img/Billetes/50.jpg"/><% out.println(billetes50); %><%
+                                    %><img class="dinero" src="../Img/Billetes/50.jpg"/><% out.println(billetes50); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (billetes20 > 0) {
-                                    %><img src="../Img/Billetes/20.jpg"/><% out.println(billetes20); %><%
+                                    %><img class="dinero" src="../Img/Billetes/20.jpg"/><% out.println(billetes20); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (billetes10 > 0) {
-                                    %><img src="../Img/Billetes/10.jpg"/><% out.println(billetes10); %><%
+                                    %><img class="dinero" src="../Img/Billetes/10.jpg"/><% out.println(billetes10); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (billetes5 > 0) {
-                                    %><img src="../Img/Billetes/5.png"/><% out.println(billetes5); %><%
+                                    %><img class="dinero" src="../Img/Billetes/5.png"/><% out.println(billetes5); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas2 > 0) {
-                                    %><img src="../Img/Billetes/2.png"/><% out.println(monedas2); %><%
+                                    %><img class="dinero" src="../Img/Billetes/2.png"/><% out.println(monedas2); %><%
                                     }
                             %>
                             </td>
@@ -126,55 +126,55 @@
                              <td>
                             <%
                                 if (monedas1 > 0) {
-                                    %><img src="../Img/Billetes/1.png"/><% out.println(monedas1); %><%
+                                    %><img class="dinero" src="../Img/Billetes/1.png"/><% out.println(monedas1); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas50 > 0) {
-                                    %><img src="../Img/Billetes/050.png"/><% out.println(monedas50); %><%
+                                    %><img class="dinero" src="../Img/Billetes/050.png"/><% out.println(monedas50); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas20 > 0) {
-                                    %><img src="../Img/Billetes/020.png"/><% out.println(monedas20); %><%
+                                    %><img class="dinero" src="../Img/Billetes/020.png"/><% out.println(monedas20); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas10 > 0) {
-                                    %><img src="../Img/Billetes/010.png"/><% out.println(monedas10); %><%
+                                    %><img class="dinero" src="../Img/Billetes/010.png"/><% out.println(monedas10); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas5 > 0) {
-                                    %><img src="../Img/Billetes/005.png"/><% out.println(monedas5); %><%
+                                    %><img class="dinero" src="../Img/Billetes/005.png"/><% out.println(monedas5); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas2cent > 0) {
-                                    %><img src="../Img/Billetes/002.png"/><% out.println(monedas2cent); %><%
+                                    %><img class="dinero" src="../Img/Billetes/002.png"/><% out.println(monedas2cent); %><%
                                     }
                             %>
                             </td>
                              <td>
                             <%
                                 if (monedas1cent > 0) {
-                                    %><img src="../Img/Billetes/001.png"/><% out.println(monedas1cent); %><%
+                                    %><img class="dinero" src="../Img/Billetes/001.png"/><% out.println(monedas1cent); %><%
                                     }
                             %>
                             </td>
                         </tr>
                     </table>
-                    <p>Total a devolver: <%out.print(cambio);%></p>
+                    <p>Total a devolver: <%out.print(Math.round(cambio * 100.0) / 100.0);%></p>
             <%
                     //Continuar poniendo la tabla con imagenes de billetes
                 } 
@@ -182,7 +182,7 @@
         </div>
 
         <div class="volver">
-            <a href="../HTML/CalculadoraCambio.html">Otra operaci&oacute;n</a>
+            <a href="../HTML/CalculadoraCambio.html">Repetir</a>
         </div>
         <div class="volver">
             <a href="../index.html">Inicio</a>

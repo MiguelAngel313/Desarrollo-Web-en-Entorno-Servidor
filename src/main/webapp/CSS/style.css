@@ -119,3 +119,8 @@ input, select{
 table{
     border: 1px solid #948979;
 }
+
+.dinero{
+    max-width: 40px;
+
+}
