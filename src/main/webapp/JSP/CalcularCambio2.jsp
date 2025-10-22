@@ -16,6 +16,9 @@
         <h1>Gestor de cambio 2</h1>
         <div class="formulario">
             <%
+                try {
+                        
+                    
                 double precio = Double.parseDouble(request.getParameter("Precio"));
                 double entregado = Double.parseDouble(request.getParameter("Entregado"));
                 
@@ -82,6 +85,9 @@
             <p><%= resultado.toString().replace("\n", "<br>") %></p>
             <%
                 }
+                } catch (Exception e) {
+                %><p class="error">Debes rellenar todos los campos.</p><%
+                    }
             %>
         </div>
         <div class="volver">
