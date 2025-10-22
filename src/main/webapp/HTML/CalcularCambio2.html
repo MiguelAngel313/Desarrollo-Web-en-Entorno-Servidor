@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="es">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/style.css"/>
+    </head>
+    <body>
+         <h1>Introduce los datos</h1>
+    <div class="formulario">
+        <form action="../JSP/CalcularCambio2.jsp" method="post">
+            <label for="precio">Precio del producto</label><br>
+            <input type="number" name="Precio" step="0.01" placeholder="0.00"><br>
+            <label for="entregado">Entregado</label><br>
+            <input type="number" name="Entregado" step="0.01" placeholder="0.00"><br>
+            
+            <input style="margin-top: 10px;" class="boton" type="submit" value="Enviar">
+
+        </form>
+    </div>
+    <div class="volver">
+        <a href="../index.html">Volver</a>
+    </div>
+    </body>
+</html>
